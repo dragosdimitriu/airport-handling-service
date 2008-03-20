@@ -1,0 +1,86 @@
+td {
+	font-family: Arial, Helvetica, sans-serif; font-size: 10pt;
+	}
+	
+
+#handling_table
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	border:#CCCCCC solid 1px;
+	border-collapse:collapse;
+}
+
+.handling_td
+{
+	padding: 4px;
+}
+
+#amount_table
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	border:#CCCCCC solid 1px;
+	border-collapse:collapse;
+}
+
+.input_area
+{
+	width: 32em;
+}
+
+#handling_new_table
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	
+}
+
+ #request_table
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	border:#CCCCCC solid 1px;
+	border-collapse:collapse;
+}
+
+#total_table
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	border:#CCCCCC solid 1px;
+	border-collapse:collapse;
+}
+
+input{
+     border:1px solid #ccc;
+     padding:5px;
+}
+
+input:focus{
+     border:1px solid #38C;
+}
+
+select
+{
+border:2px solid #87CEFA;
+}
+
+#wrapper {
+ 
+ text-align: left;
+ 
+ width: 740px;
+ 
+ margin-left: auto;
+ 
+ margin-right: auto;
+ 
+background-color: #fdf8f2;
+ 
+color: #01407a;
+ 
+padding: 10px;
+ 
+}
+ 

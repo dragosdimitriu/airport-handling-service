@@ -1,0 +1,90 @@
+<legend><b>Handling on request</b></legend>
+	<% fields_for :service_type, @flight_type.service_type  do |service| %>
+	<table>
+	<tr>
+		<td><label>(*)Checkin UNIT RATE</label></td>
+	</tr>
+	<tr>
+		<td><%= service.text_field  :on_request_checkin, :size => 10%></td>
+	</tr>
+	<tr>
+		<td><label>(*)GPU 28.5V</label></td>
+	</tr>
+	<tr>
+		<td><%= service.text_field :on_request_GPU_28_5, :size => 10%></td>
+	</tr>
+	<tr>
+		<td><label>(*)GPU_115V 400Hz</label></td>
+	</tr>
+	<tr>
+		<td><%= service.text_field :on_request_GPU_115, :size => 10%></td>
+	</tr>
+	<tr>
+		<td><label>(*)Air starter</label></td>
+	</tr>
+	<tr>
+		<td><%= service.text_field :on_request_air_starter, :size => 10%></td>
+	</tr>
+	<tr>
+		<td><label>(*)Lavatory</label></td>
+	</tr>
+	<tr>
+		<td><%= service.text_field :on_request_lavatory, :size => 10%></td>
+	</tr>
+	<tr>
+		<td><label>(*)Portable water</label></td>
+	</tr>
+	<tr>
+		<td><%= service.text_field :on_request_water, :size => 10%></td>
+	</tr>
+	<tr>
+		<td><label>(*)Tp. BUS Pax--terminal-aircraft</label></td>
+	</tr>
+	<tr>
+		<td><%= service.text_field :on_request_bus_passanger, :size => 10%></td>
+	</tr>
+	<tr>
+		<td><label>(*)Tp. MINIBUS Pax--terminal-aircraft</label></td>
+	</tr>
+	<tr>
+		<td><%= service.text_field :on_request_minibus_passanger, :size => 10%></td>
+	</tr>
+	<tr>
+		<td><label>(*)Tp. MINIBUS crew--terminal-aircraft</label></td>
+	</tr>
+	<tr>
+		<td><%= service.text_field :on_request_minibus_crew, :size => 10%></td>
+	</tr>
+	<tr>
+		<td><label>(*)Cleaning services UNIT RATE</label></td>
+	</tr>
+	<tr>
+		<td><%= service.text_field :on_request_cleaning_unit_rate, :size => 10%></td>
+	</tr>
+	<tr>
+		<td><label>(*)Cleaning services 40 seats</label></td>
+	</tr>
+	<tr>
+		<td><%= service.text_field :on_request_cleaning_40, :size => 10%></td>
+	</tr>
+	<tr>
+		<td><label>(*)Cleaning services 40-100 seats</label></td>
+	</tr>
+	<tr>
+		<td><%= service.text_field :on_request_cleaning_40_100, :size => 10%></td>
+	</tr>
+	<tr>
+		<td><label>(*)Cleaning services 100-150 seats</label></td>
+	</tr>
+	<tr>
+		<td><%= service.text_field :on_request_cleaning_100_150, :size => 10%></td>
+	</tr>
+	<tr>
+		<td><label>(*)Cleaning services 150-200 seats</label></td>
+	</tr>
+	<tr>
+		<td><%= service.text_field :on_request_cleaning_150_200, :size => 10%></td>
+	</tr>
+
+<% end %>
+</table>

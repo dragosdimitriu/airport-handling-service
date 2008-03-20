@@ -1,0 +1,39 @@
+<div class="Container">
+<span style="color: #333; padding: 8px; font-size: 12px">
+</span>	
+<% form_tag  do%>
+
+    <table width="400" align="center" cellspacing="10" bgcolor="#87CEEB">
+		
+		<tr><td align = "left">    
+                <p style="color: red" ><b><%= flash[:error] %></b></p>
+        </td></tr>
+
+        <tr>
+            <td COLSPAN=2 align = "center">Login</td>
+        </tr>
+        <tr>
+            <td COLSPAN=2 align = "center"> <b>Username :</b></td>
+        </tr>	
+        <tr>
+            <td COLSPAN=2 align = "center" ><%= text_field_tag :username, params[:username]%></td>
+        </tr>	
+        
+        <tr>
+            <td COLSPAN=2 align = "center" ><b>Password :</b></td>
+        </tr>	
+        <tr>
+            <td COLSPAN=2 align = "center" ><%= password_field_tag :password, params[:password]%></td>
+        </tr>	
+        
+        <tr>
+                <td align = "center"> <%= submit_tag "Login"%></td>
+        </tr>
+		<tr>
+				<td align = "center"><%= link_to 'Register' ,:controller=>'users', :action=>'register'%></td>
+		</tr>
+	
+	</table>	
+<% end%>
+</div>
+

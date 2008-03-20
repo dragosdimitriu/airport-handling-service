@@ -1,0 +1,278 @@
+<h5>Logged in as: <%= current_user%> | <%= link_to 'Logout' ,:controller=>'users', :action=>'logout'%>
+</h5>
+<table align="center">
+<tr><td><div><img src="/images/banner_air.jpg" /></div></td></tr>
+</table>
+<br />
+<table align="center">
+<tr><td><b>Number:</b><%=h @service_request.id %></td></tr>
+<tr><td><b>Date:</b><%= Time.now.strftime ('%d.%m.%Y')%></td></tr>
+</table>
+<br />
+<table align="center" border="1" cellpadding="0" cellspacing="0" id="handling_table" width="400">
+
+<tr>
+		<td class="handling_td">
+		  <b>AIRLINE: </b>
+		  <%=h @service_request.airline %>
+		</td>
+</tr>
+
+<tr>
+		<td class="handling_td">
+		  <b>A/C TYPE: </b>
+		  <%=h @flight_type.name %>
+		</td>
+</tr> 
+
+<tr>
+		<td class="handling_td">
+		  <b>REGISTRATION:</b>
+		  <%=h @service_request.registration %>
+		</td>
+</tr> 
+           
+<tr><td class="handling_td">
+  <b>Mtow:</b>
+  <%=h @service_request.mtow %>
+</td>
+</tr>
+
+<tr><td class="handling_td">
+  <b>Flight:</b>
+  <%=h @service_request.flight %>
+</td>
+</tr>
+
+<tr><td class="handling_td">
+  <b>Passengers arriving:</b>
+  <%=h @service_request.passengers_arriving %>
+</td>
+</tr>
+<tr><td class="handling_td">
+  <b>Passengers departing:</b>
+  <%=h @service_request.passengers_departing %>
+  </td>
+</tr>
+
+<tr><td class="handling_td">
+  <b>Route:</b>
+  <%=h @service_request.route %>
+</td>
+</tr>
+
+<tr><td class="handling_td">
+  <b>Landing:</b>
+  <%=h @service_request.landing.strftime ('%d.%m.%Y  %H:%M:%S')%>
+</td>
+</tr>
+
+<tr><td class="handling_td">
+  <b>Take off:</b>
+  <%=h @service_request.take_off.strftime ('%d.%m.%Y  %H:%M:%S') %>
+</td>
+</tr>
+</table>
+<br />
+<table width="600" align="center" border="1" cellpadding="0" cellspacing="0" id="amount_table">
+<tr>
+		<td class="handling_td"><b>CHARGES</b></td>
+		<td align="center"><b>AMOUNT</b></td>
+</tr>
+<tr>
+		<td class="handling_td">LANDING</td>
+		<td class="handling_td"><%=getLandingPrice(@service_request)%></td>
+</tr>
+<tr>
+		<td class="handling_td">LIGHTING</td>
+		<td class="handling_td"><%= getLightingPrice(@service_request )%></td>
+</tr>
+
+<tr>
+		<td class="handling_td">PARKING</td>
+		<td class="handling_td"><%= getParkingPrice(@service_request )%></td>
+		
+</tr>
+
+<tr>
+		<td class="handling_td">AIRPORT DEVELOPMENTCHARGE</td>
+		<td class="handling_td"><%= getAirportPrice(@service_request)%></td>
+</tr>
+<tr>
+		<td class="handling_td">PASSENGERS SERVICE</td>
+		<td class="handling_td"><%= getPassengerService(@service_request)%></td>
+</tr>
+
+<tr>
+		<td class="handling_td">PASSENGERS SECURITY</td>
+		<td class="handling_td"><%= getPassengerSecurity(@service_request)%></td>
+</tr>
+<tr>
+		<td class="handling_td">PASSENGER TRANZIT OR TRANSFER</td>
+		<td class="handling_td"><%= getPassengerTranzit(@service_request)%></td>
+</tr>
+<tr>
+		<td class="handling_td">BASIC HANDLING SERVICE</td>
+		<td class="handling_td"><%= getBasicHandling(@service_request)%></td>
+</tr>
+
+</table>
+<br />
+<table align="center" width="600"  border="1" cellpadding="0" cellspacing="0" id="request_table">
+	<tr>
+			<td class="handling_td"  colspan="3"> <b>Handling on Request</b></td>
+	</tr>
+<% if 	(@service_request.checkin_req == false) && 
+		(@service_request.gpu_v_cc_req == false) &&
+		(@service_request.gpu_115v_req == false) && 
+		(@service_request.air_starter_req == false) &&
+		(@service_request.lavatory_service_req == false)  && 
+		(@service_request.potable_water_req == false)  && 
+		(@service_request.tp_bus_pax_req == false)  && 
+		(@service_request.tp_minibus_pax_req == false)  && 
+		(@service_request.tp_minibus_crew_req == false)  && 
+		(@service_request.cleaning_services_req == false) -%>
+<tr><td class="handling_td" colspan="3"> Nu avem servicii</td></tr>
+<% else -%>
+	<tr >
+			<td class="handling_td"s>Services</td>
+			<td class="handling_td">Number of Operations</td>
+			<td class="handling_td">Amount</td>
+	</tr>
+	
+	<% if @service_request.checkin_req == true -%>
+	<tr >
+			<td class="handling_td">Check-in Tax </td>
+			<td class="handling_td">n/a </td>
+			<td class="handling_td"><%= getCheckInTax(@service_request)%> </td>
+	</tr>
+	<% end -%>
+	
+	<% if @service_request.gpu_v_cc_req == true -%>
+	<tr >
+			<td class="handling_td">GPU – 28.5 V cc </td>
+			<td class="handling_td"><%= @service_request.gpu_v_cc_operations%></td>
+			<td class="handling_td"> <%= getGPUccV (@service_request)%> </td>
+	</tr>
+	<% end -%>
+	
+	<% if @service_request.gpu_115v_req == true -%>
+	<tr >
+			<td class="handling_td">GPU – 115 V 400 Hz  </td>
+			<td class="handling_td"><%= @service_request.gpu_115v_operations%></td>
+			<td class="handling_td"> <%= getGPU_115(@service_request)%> </td>
+	</tr>
+	<% end -%>
+	<% if @service_request.air_starter_req == true -%>
+	<tr >
+			<td class="handling_td">Air Starter  </td>
+			<td class="handling_td"><%= @service_request.air_starter_operations%></td>
+			<td class="handling_td"> <%= getAirStarter(@service_request)%></td>
+	</tr>
+	<% end -%>
+	<% if @service_request.lavatory_service_req == true -%>
+	<tr >
+			<td class="handling_td">Lavatory Service  </td>
+			<td class="handling_td"><%= @service_request.lavatory_service_operations%></td>
+			<td class="handling_td"> <%= getLavatoryService(@service_request)%> </td>
+	</tr>
+	<% end -%>
+	<% if @service_request.potable_water_req == true -%>
+	<tr >
+			<td class="handling_td">Potable Water </td>
+			<td class="handling_td"><%= @service_request.potable_water_operations%></td>
+			<td class="handling_td"><%= getPotableWater(@service_request)%> </td>
+	</tr>
+	<% end -%>
+	<% if @service_request.tp_bus_pax_req == true -%>
+	<tr >
+			<td>Tp. BUS Pax  </td>
+			<td class="handling_td"><%= @service_request.tp_bus_pax_operations%></td>
+			<td class="handling_td"> <%= getTpBusPax(@service_request)%> </td>
+	</tr>
+	<% end -%>
+	
+	<% if @service_request.tp_minibus_pax_req == true -%>
+	<tr >
+			<td class="handling_td">Tp. MINIBUS Pax </td>
+			<td class="handling_td"><%= @service_request.tp_minibus_pax_operations%></td>
+			<td class="handling_td"> <%= getTpMiniBusPax(@getTpBusPax)%> </td>
+	</tr>
+	<% end -%>
+	
+	<% if @service_request.tp_minibus_crew_req == true -%>
+	<tr >
+			<td class="handling_td">Tp. MINIBUS crew  </td>
+			<td class="handling_td"><%= @service_request.tp_minibus_crew_operations%></td>
+			<td class="handling_td"><%= getTpMinibusCrew(@service_request)%> </td>
+	</tr>
+	<% end -%>
+	
+	<% if @service_request.cleaning_services_req == true -%>
+	<tr >
+			<td class="handling_td">Cleaning services  </td>
+			<td class="handling_td"><%= @service_request.cleaning_services_operations%></td>
+			<td class="handling_td"> <%= getCleaningServices(@service_request)%> </td>
+	</tr>
+	<% end -%>
+	
+	
+	
+<% end -%>
+
+	
+</table>
+<br />
+<table align="center" width="600"  border="1" cellpadding="0" cellspacing="0" id="total_table">
+
+<tr>
+			<td class="handling_td"><b>Total (no VAT)</b></td>
+			<td class="handling_td"><%= TotalFaraTva(@service_request)%> </td>
+	</tr>
+<tr>
+			<td class="handling_td"><b>VAT = 19%</b></td>
+			<td class="handling_td"><%= (19*TotalFaraTva(@service_request)) / 100 %></td>
+	</tr>
+	<tr>
+			<td class="handling_td"><b>VAT</b></td>
+			<td class="handling_td"><%= (19*TotalFaraTva(@service_request)) / 100 +(TotalFaraTva(@service_request))%> </td>
+	</tr>
+</table>
+
+<br />
+
+<table width="600"  align="center" cellpadding="0" cellspacing="0">
+<tr>
+<td colspan="2" align="center">AIRPORT AGENT</td>
+<td colspan="2" align="center">PILOT IN COMMAND</td>
+
+</tr>
+
+<tr>
+<td class="handling_td" width="66">Nume Prenume</td>
+<td class="handling_td" width="79">Nume</td>
+<td width="251"  class="handling_td">_____________________</td>
+</tr>
+
+<tr>
+<td width="194"  class="handling_td"><font size="3"><%= current_user%></font></td>
+<td class="handling_td">Prenume</td>
+<td  class="handling_td">_____________________</td>
+</tr>
+
+</table>
+
+<h3 align="center">
+	<%= link_to 'List service requests', service_requests_path %>
+</h3>
+
+
+
+
+
+
+
+
+
+
+

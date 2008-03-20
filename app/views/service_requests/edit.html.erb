@@ -1,0 +1,161 @@
+<h5>Logged in as: <%= current_user%> | <%= link_to 'Logout' ,:controller=>'users', :action=>'logout'%>
+</h5>
+<fieldset>
+				<legend>
+				Editing Service Request  
+				</legend>
+
+
+<%= error_messages_for :service_request %>
+
+<% form_for(@service_request) do |f| %>
+  <table id="handling_new_table">
+<tr>
+			<td><b>Airline</b></td>
+			<td><b>A c type</b></td>
+			<td><b>Registration</b></td>
+</tr>	
+  <tr> 
+		   <td> <%= f.text_field :airline %></td>
+			<td><%= f.select (:a_c_type, @flight_types, @selected)%></td>
+			<td><%= f.text_field :registration %></td>
+  </tr>
+
+ 
+ <tr>   
+		 <td><b>Mtow</b></td>
+		 <td> <b>Flight</b></td>
+		<td><b>Passengers arriving</b></td>
+	</tr>
+<tr>	
+		 <td> <%= f.text_field :mtow %></td>
+		 <td><%= f.text_field :flight %></td>
+		  <td><%= f.text_field :passengers_arriving %></td>
+  </tr>
+
+  <tr>
+    
+			<td><b>Passengers departing</b></td>
+			<td colspan="2"><b>Route</b></td>
+			
+   </tr>
+  <tr> 
+		 <td> <%= f.text_field :passengers_departing %></td>
+		 <td colspan="2">  <%= f.text_field :route, :class => "input_area" %></td>
+		 
+ </tr>
+
+ <tr>
+ <td>  <b>Landing</b></td>
+ 
+ <td colspan="2"> <b>Take off</b></td>
+
+ </tr>
+ <tr>
+ <td> <%= f.datetime_select :landing %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+ 
+ <td colspan="2">  <%= f.datetime_select :take_off %></td>
+ 
+ </tr>
+ 
+ 
+ <tr>  
+			
+			<td>   <b>Remarks</b></td>
+			<td> <b>Number of seats</b></td>
+			<td>  &nbsp;</td>
+ </tr> 
+<tr> 
+			
+			<td> <%= f.text_field :remarks %></td>
+			<td><%= f.text_field :number_of_seats %></td>
+			<td>  &nbsp;</td>
+ </tr> 
+
+  </table>
+  </fieldset>
+<fieldset>
+				<legend>
+				Services on Demand  
+				</legend>
+<table>
+<tr>
+<td><b>Demanded</b></td>
+<td><b>Service Name</b> </td>
+<td><b>Operations</b></td>
+</tr>
+
+<tr>
+<td><%= f.check_box :checkin_req %></td>
+<td>Check-in Tax </td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>	<%= f.check_box :gpu_v_cc_req%></td>
+<td>GPU – 28.5 V cc </td>
+<td><%= f.text_field :gpu_v_cc_operations %></td>
+</tr>
+
+<tr>
+
+<td>	<%= f.check_box :gpu_115v_req %></td>
+	  <td>GPU – 115 V 400 Hz </td>
+	  <td><%= f.text_field :gpu_115v_operations %></td>
+	</tr>
+
+<tr>  
+<td>	<%= f.check_box :air_starter_req %></td>
+	  <td>Air Starter </td>
+	  <td><%= f.text_field :air_starter_operations %></td>
+	  </tr>
+
+<tr>
+<td>	<%= f.check_box :lavatory_service_req %></td>
+	  <td>Lavatory Service </td>
+	  <td><%= f.text_field :lavatory_service_operations %></td>
+	  </tr>
+
+<tr>
+<td>	<%= f.check_box :potable_water_req %></td>
+	  <td>Potable Water </td>
+	  <td><%= f.text_field :potable_water_operations %></td>
+</tr>
+
+<tr>
+<td>	<%= f.check_box :tp_bus_pax_req %></td>
+	  <td>Tp. BUS Pax – terminal-aircraft </td>
+	  <td><%= f.text_field :tp_bus_pax_operations %></td>
+</tr>
+
+<tr>
+<td>	<%= f.check_box :tp_minibus_pax_req %></td>
+	<td>Tp. MINIBUS Pax – terminal-aircraft</td>
+	<td><%= f.text_field :tp_minibus_pax_operations %></td>
+</tr>
+
+<tr>
+<td>	<%= f.check_box :tp_minibus_crew_req %></td>
+<td>Tp. MINIBUS crew – terminal-aircraft</td>
+<td><%= f.text_field :tp_minibus_crew_operations %></td>	  
+</tr>
+
+<tr>
+<td>	<%= f.check_box :cleaning_services_operations%></td>
+	  <td>Cleaning services </td>
+	  <td><%= f.text_field :cleaning_services_operations %></td>
+</tr>
+
+  </table>  
+
+
+
+
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+</fieldset>
+<%= link_to 'Show', @service_request %> |
+<%= link_to 'Back', service_requests_path %>

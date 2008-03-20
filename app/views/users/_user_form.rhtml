@@ -1,0 +1,28 @@
+<%= error_messages_for :user%>
+
+
+<table align="center" width="200" bgcolor="#87CEEB">
+		<tr>
+					<td><label>Name(*)</label></td>
+					
+		</tr>
+		<tr>
+					<td><%= text_field 'user', 'name'  %></td>
+		</tr>			
+		<tr>
+					<td><label>Username(*)</label></td>
+		</tr>
+		<tr>
+					<td><%= text_field 'user', 'username'  %>  </td>
+		</tr>
+					<td><label>Password(*)</label></td>
+					<td><label>Confirm password(*)</label></td>
+					
+		</tr>
+		<tr>
+					<td><%= password_field 'user', 'password'  %></td>
+					<td><%= password_field 'user', 'password_confirmation'  %></td>
+		</tr>
+		
+</table>
+

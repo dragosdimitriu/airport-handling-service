@@ -1,0 +1,109 @@
+<legend><b>General handling</b></legend>
+	<% fields_for :service_type, @flight_type.service_type  do |service| %>
+	<table>
+	<tr>
+		<td class="handling_td"><label>(*)Landing UNIT RATE</label</td>
+		<td class="handling_td"><label>Landing MINIMUM RATE </label></td>		
+	</tr>
+	<tr>
+		<td class="handling_td"><%= service.text_field :landing_unit_rate , :size => 10%></td>
+		<td class="handling_td"><%= service.text_field :landing_min_rate, :size => 10%></td>
+	</tr>
+	<tr>
+		<td class="handling_td"><label>(*)Lightning [LANDING] UNIT RATE </label></td>
+		<td class="handling_td"><label>Lightning [LANDING] MINIMUM RATE </label></td>
+	</tr>
+	<tr>
+		<td class="handling_td"><%= service.text_field :lighting_landing_unit_rate , :size => 10%></td>
+		<td class="handling_td"><%= service.text_field  :lighting_landing_min_rate, :size => 10%></td>
+	</tr>
+	<tr>
+		<td class="handling_td"><label>(*)Lightning [TAKE_OFF] UNIT RATE </label></td>
+		<td class="handling_td"><label>Lightning [TAKE_OFF] MINIMUM RATE </label></td>
+	</tr>
+	<tr>
+		<td class="handling_td"><%= service.text_field :lighting_takeoff_unit_rate , :size => 10%></td>
+		<td class="handling_td"><%= service.text_field  :lighting_takeoff_min_rate, :size => 10%></td>
+	</tr>
+	<tr>
+		<td class="handling_td"><label>(*)Parking UNIT RATE </label></td>
+		<td class="handling_td"><label>Parking MINIMUM RATE </label></td>
+	</tr>
+	<tr>
+			<td class="handling_td"><%= service.text_field :parking_unit_rate, :size => 10%></td>
+			<td class="handling_td"><%= service.text_field  :parking_min_rate, :size => 10%></td>
+	</tr>
+	<tr>
+		<td class="handling_td"><label>(*)Airport development UNIT RATE </label></td>
+		<td class="handling_td"><label>Airport development MINIMUM RATE </label></td>
+	</tr>
+	<tr>	
+		<td class="handling_td"><%= service.text_field :airport_dev_unit_rate, :size => 10%></td>
+		<td class="handling_td"><%= service.text_field :airport_dev_min_rate, :size => 10%></td>	
+	</tr>
+	
+	<tr>
+		<td class="handling_td"><label>(*)Passengers services UNIT RATE </label></td>
+		<td class="handling_td"><label>Passengers services MINIMUM RATE </label></td>
+	</tr>
+	<tr>
+			<td class="handling_td"><%= service.text_field :passanger_serv_unit_rate, :size => 10%></td>
+			<td class="handling_td"><%= service.text_field :passanger_serv_min_rate, :size => 10%></td>
+	</tr>
+	<tr>
+		<td class="handling_td"><label>(*)Passengers security UNIT RATE </label></td>
+		<td class="handling_td"><label>Passengers security MINIMUM RATE </label></td>
+	</tr>
+	<tr>
+		<td class="handling_td"><%= service.text_field :passanger_security_unit_rate, :size => 10%></td>
+		<td class="handling_td"><%= service.text_field :passanger_security_min_rate, :size => 10%></td>
+	</tr>
+	<tr>
+		<td class="handling_td"><label>(*)Passengers tranzit UNIT RATE </label></td>
+		<td class="handling_td"><label>Passengers tranzit MINIMUM RATE </label></td>
+	</tr>
+	<tr>
+		<td class="handling_td"><%= service.text_field :passanger_transfer_unit_rate, :size => 10%></td>
+		<td class="handling_td"><%= service.text_field :passanger_transfer_min_rate, :size => 10%></td>
+	</tr>
+	<tr>
+		<td class="handling_td"><label>(*)Basic handling UNIT RATE</label></td>
+	</tr>
+	<tr>
+			<td class="handling_td"><%= service.text_field :basic_handle_unic_rate, :size => 10%></td>
+	</tr>
+	<tr>
+		<td class="handling_td"><label>(*)Basic handling 2t-7t UNIT RATE</label></td>
+	</tr>
+	<tr>
+		<td class="handling_td"><%= service.text_field :basic_handling_2_7, :size => 10%></td>
+	</tr>
+	<tr>
+		<td class="handling_td"><label>(*)Basic handling 7t-12t UNIT RATE</label></td>
+	</tr>
+	<tr>
+		<td class="handling_td"><%= service.text_field :basic_handling_7_12, :size => 10%></td>
+	</tr>
+	<tr>
+		<td class="handling_td"><label>(*)Basic handling 12t-17t UNIT RATE</label></td>
+	</tr>
+	<tr>
+		<td class="handling_td"><%= service.text_field :basic_handling_12_17, :size => 10%></td>
+	</tr>
+	<tr>
+		<td class="handling_td"><label>(*)Basic handling 17t-30t UNIT RATE</label></td>
+	</tr>
+	<tr>
+		<td class="handling_td"><%= service.text_field :basic_handling_17_30, :size => 10%></td>
+	</tr>
+	<tr>
+		<td class="handling_td"><label>(*)Basic handling over 17t UNIT RATE</label></td>
+	</tr>
+	<tr>
+		<td class="handling_td"><%= service.text_field :basic_handling_30, :size => 10%></td>
+	</tr>
+	</table>
+	<% end %>
+	</table>
+
+

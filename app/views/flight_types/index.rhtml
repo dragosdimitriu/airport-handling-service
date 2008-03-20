@@ -1,0 +1,37 @@
+<h5>Logged in as: <%= current_user%> | <%= link_to 'Logout' ,:controller=>'users', :action=>'logout'%>
+</h5>
+<%if admin?%>
+<h1 align="center">Existing aircrafts and services</h1>
+
+		<table align="center" border="1" cellpadding="0" cellspacing="0" id="handling_table" width="800">
+  	
+		<% for flight_type in @flight_types %>
+			<tr><th colspan=2 bgcolor="#99CCFF"><%= flight_type.name%></th></tr>
+				
+				<% for service in ServiceType.content_columns%>
+					<tr><th bcolour="FFFF99">
+						<td><b><%= service.name%></b></td>
+						<td><b><%=h flight_type.service_type.send(service.name)%></b></td>
+						</th>
+					</tr>
+				<% end %>
+			
+		<tr>
+			<td><b><%= link_to 'Edit', edit_flight_type_path(flight_type) %></b>
+				<b><%= link_to 'Delete', flight_type_path(flight_type), :confirm => 'Are you sure?', :method => :delete %></b></td>
+		</tr>
+		<% end %>
+	</table>
+
+
+<br />
+
+<h3 align="center">
+	<%= link_to 'Add aircraft type', new_flight_type_path %>
+	<%= link_to 'Create service request', new_service_request_path %>
+	<%= link_to 'List all service request', service_requests_path %>
+</h3>
+<%else%>
+	<%= render :partial => 'shared/access_error'%>
+<%end%>
+

@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  airline: MyString
+  a_c_type: MyString
+  registration: MyString
+  mtow: 1.5
+  flight: MyString
+  passengers_arriving: 
+  passengers_departing: 
+  route: MyString
+  landing: 2008-03-11 23:11:52
+  take_off: 2008-03-11 23:11:52
+  remarks: MyString
+
+two:
+  airline: MyString
+  a_c_type: MyString
+  registration: MyString
+  mtow: 1.5
+  flight: MyString
+  passengers_arriving: 
+  passengers_departing: 
+  route: MyString
+  landing: 2008-03-11 23:11:52
+  take_off: 2008-03-11 23:11:52
+  remarks: MyString

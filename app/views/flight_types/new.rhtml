@@ -1,0 +1,30 @@
+<h5>Logged in as: <%= current_user%> | <%= link_to 'Logout' ,:controller=>'users', :action=>'logout'%>
+</h5>
+<h1>New aircraft type</h1>
+
+<%= error_messages_for :service_type %>
+
+	<fieldset>
+	<legend><b>Set aircraft fees</b></legend>
+	<table>
+			<% form_for @flight_type do |flight| %>
+		<tr>
+			<td><label>(*)Aircraft type:</label></td>
+			<td><%= flight.text_field :name%></td>
+		</tr>
+	</table>
+	 </fieldset>
+	<fieldset>
+		<%= render :partial => 'basic_handling'%>
+	</fieldset>
+	<fieldset>
+		<%= render :partial => 'onrequest_handling'%>
+	</fieldset>
+	<table>
+		<tr>
+			<td><%= submit_tag 'Save' %></td>
+		</tr>
+	<% end %>
+	</table>
+
+<%= link_to 'Back', flight_types_path %>

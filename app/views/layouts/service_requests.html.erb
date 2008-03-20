@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Service Requests: <%= controller.action_name.capitalize %></title>
+<script type="text/javascript"> 
+ function updateEvents(events) { 
+    var search_aircrafts    = document.getElementById('search_aircrafts'); 
+    var search_mtow   = document.getElementById('search_mtow'); 
+ 	var search_handling_id   = document.getElementById('search_handling_id');
+	
+	if (events == '')
+	{
+		search_aircrafts.style.display = 'none';
+		search_mtow.style.display = 'none';
+		search_handling_id.style.display = 'none';
+	}
+	if (events=='1')
+	{
+		search_aircrafts.style.display = 'block';
+		search_mtow.style.display = 'none';
+		search_handling_id.style.display = 'none';
+	}
+	if (events == '2')
+	{
+		search_aircrafts.style.display = 'none';
+		search_mtow.style.display = 'block';
+		search_handling_id.style.display = 'none';
+	}
+	if (events == '3')
+	{
+		search_aircrafts.style.display = 'none';
+		search_mtow.style.display = 'none';
+		search_handling_id.style.display = 'block';
+	}
+ } 
+</script>
+  <%= stylesheet_link_tag 'scaffold' %>
+  <%= stylesheet_link_tag 'handling' %>
+</head>
+<body>
+
+<p style="color: green"><%= flash[:notice] %></p>
+
+<%= yield  %>
+
+</body>
+</html>
+
+

@@ -1,0 +1,48 @@
+<h5>Logged in as: <%= current_user%> | <%= link_to 'Logout' ,:controller=>'users', :action=>'logout'%>
+</h5>
+<h1 align="center" >Listing service_requests</h1>
+
+<table align="center" border="1" cellpadding="0" cellspacing="0"  width="600" id="amount_table">
+  <tr>
+    <th>Airline</th>
+    <th>A c type</th>
+    <th>Registration</th>
+    <th>Mtow</th>
+    <th>Flight</th>
+    <th>Passengers arriving</th>
+    <th>Passengers departing</th>
+    <th>Route</th>
+    <th>Landing</th>
+    <th>Take off</th>
+    <th>Remarks</th>
+	<th>Number of seats</th>
+  </tr>
+
+<% for service_request in @service_requests %>
+  <tr>
+    <td><%=h service_request.airline %></td>
+    <td><%=h service_request.a_c_type %></td>
+    <td><%=h service_request.registration %></td>
+    <td><%=h service_request.mtow %></td>
+    <td><%=h service_request.flight %></td>
+    <td><%=h service_request.passengers_arriving %></td>
+    <td><%=h service_request.passengers_departing %></td>
+    <td><%=h service_request.route %></td>
+    <td><%=h service_request.landing %></td>
+    <td><%=h service_request.take_off %></td>
+    <td><%=h service_request.remarks %></td>
+	<td><%=h service_request.number_of_seats %></td>
+    <td><%= link_to 'Show', service_request %></td>
+    <td><%= link_to 'Edit', edit_service_request_path(service_request) %></td>
+    <td><%= link_to 'Destroy', service_request, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<br/>
+
+<p align="center">
+	<%= link_to 'New service_request', new_service_request_path %> <br/>
+	<%= link_to 'Manage aircraft types', flight_types_path %> <br/>
+	<%= link_to 'Search flights', search_service_requests_path %>
+</p>
+

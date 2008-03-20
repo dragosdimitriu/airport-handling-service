@@ -1,0 +1,21 @@
+<h5>Logged in as: <%= current_user%> | <%= link_to :controller=>'users', :action=>'logout'%>
+</h5>
+<h2> Modify price list for <%= @flight_type.name%> </h2>
+
+<%= error_messages_for :service_type %>
+
+<% remote_form_for (:services, :url => flight_type_service_type_path(@flight_type, @service_type) , :html => {:method => :put} )  do |f| %>
+
+  <%= render :partial => 'basic_handling'%>
+	<fieldset>
+	<%= render :partial => 'onrequest_handling'%>
+	</fieldset>
+ <table>
+	<tr>
+			<td>  <%= f.submit "Update" %></td>
+	</tr>
+<table>
+<% end %>
+<br/>
+		<%= link_to 'Back to index', flight_types_url%>
+

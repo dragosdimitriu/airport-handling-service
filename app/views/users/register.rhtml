@@ -1,0 +1,14 @@
+
+  	<h2>Users registration</h2>
+
+<% form_tag :action => 'register', :id => @user do %>
+	  <%= render :partial => 'user_form' %>
+  <h5 align="center">All fields are mandatory</h5>
+  <table align="center">
+	<tr>
+  		<td><%= submit_tag 'Register' %></td>
+		<td align="center"> | </td>
+		<td align="center"><fort size="32"><%= link_to 'Login', :controller=>'users', :action=> 'login'%></font></td>
+	</tr>
+  </table>
+<% end %>
