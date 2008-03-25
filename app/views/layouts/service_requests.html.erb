@@ -39,11 +39,11 @@
 </script>
   <%= stylesheet_link_tag 'scaffold' %>
   <%= stylesheet_link_tag 'handling' %>
+  <%= stylesheet_link_tag 'stickies' %>
+ 
 </head>
 <body>
-
-<p style="color: green"><%= flash[:notice] %></p>
-
+<%= render_stickies %>
 <%= yield  %>
 
 </body>

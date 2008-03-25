@@ -1,0 +1,33 @@
+<h3 align="center">Generate statistical report</h3>
+<table>
+<%form_tag :action=>'report_stat' do%>
+
+	<tr>
+	<td><div_id="date_start_raport" align="center" style="display:block;">
+		Start Period: <%= datetime_select :date_search_stats, :date_start_stats, :order => [:year, :month, :day]%>
+	</div></td>
+	<td>
+	<div_id="date_stop_raport" style="display:block;">
+		End Period: <%= datetime_select :date_search_stats, :date_stop_stats, :order => [:year, :month, :day]%>
+	</div></td>
+	<tr>
+	<td><%= submit_tag "Search"%></td><br/><br/>
+	</tr>
+	<% end %>
+</table>
+<div id="statistics_replace">
+</div>
+<table >
+	<tr align="left">
+		<td><b>Tara : ROMANIA</b></td>
+	</tr>
+	<tr>
+		<td><b>Aeroport : Cluj-Napoca</b></td>
+	</tr>
+</table>
+
+<%= render :partial => 'report_statistics'%>
+
+<table align="center">
+	<td><%= link_to 'Back', service_requests_path%></td>
+</table>

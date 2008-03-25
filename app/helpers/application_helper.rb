@@ -6,7 +6,7 @@ module ApplicationHelper
 
        unless Users.find_by_id(session[:user_id])
 
-           flash[:error] = "Please login first"
+           flash[:error] ="Please login first"
            redirect_to(:controller => "users", :action => "login")
 
        end

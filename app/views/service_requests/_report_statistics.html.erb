@@ -1,0 +1,75 @@
+<table align="center">
+	<tr >
+		<td><b>RAPORT STATISTIC PENTRU TRAFICUL DE AEROPORT PE RUTE DE ZBOR</b></tr>
+		<td><b>Curse Interne & Internationale NEREGULATE</b></td>
+	<tr /><tr /><tr /><tr />
+</table>
+<table class="report_table" align="center" cellpadding="0" cellspacing="0"  width="1000">
+	<tr class="report_table">
+		<th rawspan="2" class="report_table">Indicator</th>
+		<th rowspan="2" class="report_table">Mirscari aeronave TOTAL</th>
+		<th colspan="4" class="report_table">Pasageri(numar)</th>
+		<th colspan="3" class="report_table">Marfa(tone)</th>
+	</tr>
+	<tr class="report_table">
+		<th rawspan="2" class="report_table"></th>
+		<th class="report_table">Imbarcati</th>
+		<th class="report_table">Debarcati</th>
+		<th class="report_table">TOTAL (c+d)</th>
+		<th class="report_table">Tranzit direct</th>
+		<th class="report_table">Imbarcata</th>
+		<th class="report_table">Debarcata</th>
+		<th class="report_table">TOTAL (g+h)</th>
+	</tr>
+	<tr class="report_table">
+		<th class="report_table">A</th>
+		<th class="report_table">b</th>
+		<th class="report_table">c</th>
+		<th class="report_table">d</th>
+		<th class="report_table">e</th>
+		<th class="report_table">f</th>
+		<th class="report_table">g</th>
+		<th class="report_table">h</th>
+		<th class="report_table">i</th>
+	</tr>
+	<tr class="report_table">
+		<td class="report_table"><b>Transport aerian comercial</b></td>
+		<td colspan="8"></td>
+	</tr>
+	<tr class="report_table">
+		<td class="report_table">Perioada <%= @interval_start%> - <%= @interval_stop%></td>
+	<tr>
+	<tr class="report_table">
+		<td class="report_table"><b>Curse internationale neregulate</b></td>
+		<td class="report_table"><%=  @flights_int %></td>
+		<td class="report_table"><%= @passangers_dep_int%></td>
+		<td class="report_table"><%= @passangers_arr_int%></td>
+		<td class="report_table"><%= @passangers_arr_int + @passangers_dep_int%></td>
+		<td class="report_table"><%= @passangers_tran_int%></td>
+		<td class="report_table"><%= @cargo_dep_int%></td>
+		<td class="report_table"><%= @cargo_arr_int%></td>
+		<td class="report_table"><%= @cargo_arr_int + @cargo_dep_int%></td>
+	<tr>
+	<tr class="report_table">
+		<td class="report_table"><b>Curse interne neregulate</b></td>
+		<td class="report_table"><%=  @flights_dom %> </td>
+		<td class="report_table"><%= @passangers_dep_dom%></td>
+		<td class="report_table"><%= @passangers_arr_dom%></td>
+		<td class="report_table"><%= @passangers_arr_dom + @passangers_dep_dom%></td>
+		<td class="report_table"><%= @passangers_tran_dom%></td>
+		<td class="report_table"><%= @cargo_dep_dom%></td>
+		<td class="report_table"><%= @cargo_arr_dom%></td>
+		<td class="report_table"><%= @cargo_dep_dom + @cargo_arr_dom%></td>
+	<tr>
+	<tr class="report_table">
+		<td class="report_table"><b>TOTAL transport aerian comercial</b></td>
+		<td class="report_table"><b><%= @flights_int + @flights_dom%></b></td>
+		<td class="report_table"><b><%= @passangers_dep_int + @passangers_dep_dom%></b></td>
+		<td class="report_table"><b><%= @passangers_arr_int + @passangers_arr_dom%></b></td>
+		<td class="report_table"><b><%= @passangers_arr_int + @passangers_dep_int + @passangers_arr_dom + @passangers_dep_dom%></b></td>
+		<td class="report_table"><b><%= @passangers_tran_int + @passangers_tran_dom%></b></td>
+		<td class="report_table"><b><%= @cargo_dep_int + @cargo_dep_dom%></b></td>
+		<td class="report_table"><b><%= @cargo_arr_int + @cargo_arr_dom%></b></td>
+		<td class="report_table"><b><%= @cargo_arr_int + @cargo_dep_int + @cargo_arr_dom + @cargo_dep_dom%></b></td>
+	</tr>
+</table>

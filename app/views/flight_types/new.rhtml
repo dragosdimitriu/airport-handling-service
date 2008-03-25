@@ -10,7 +10,11 @@
 			<% form_for @flight_type do |flight| %>
 		<tr>
 			<td><label>(*)Aircraft type:</label></td>
+			<td><label>(*)Aircraft category :</label></td>
+		<tr/>
+		<tr>
 			<td><%= flight.text_field :name%></td>
+			<td><%= flight.select (:category, @category) %></td>
 		</tr>
 	</table>
 	 </fieldset>

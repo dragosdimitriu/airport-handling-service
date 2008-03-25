@@ -3,6 +3,7 @@ class CreateFlightTypes < ActiveRecord::Migration
     create_table :flight_types do |t|
 
       t.string :name
+      t.string :category
     end
   end
 

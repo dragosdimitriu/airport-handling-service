@@ -15,7 +15,7 @@ class UsersController < ApplicationController
                 session[:user_id] = user.id
                 redirect_to service_requests_path
             else
-                flash[:error] = "Invalid username/password"
+                error_stickie("Invalid username/password")
             end
           end
       end
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   def register
       @user = Users.new(params[:user])
       if request.post? and @user.save
-          flash[:notice] = "Account was succesfullt cretaed."
+          notice_stickie("Account was succesfullt created.")
           redirect_to service_requests_path
       end
   end

@@ -2,6 +2,7 @@ class ServiceRequest < ActiveRecord::Base
 
 	validates_presence_of :airline, :a_c_type, :mtow, :passengers_arriving, :passengers_departing, :landing , :take_off
 	
+	
  def validate
      
 	if (gpu_v_cc_req == true)
@@ -113,7 +114,6 @@ end
 
 
 		time_until = date1 - date2
-		#time_until = read_attribute("take_off") - read_attribute("take_off")
 		hours,minutes,seconds,frac = DateTime.day_fraction_to_time(time_until)
 		return  hours
 		

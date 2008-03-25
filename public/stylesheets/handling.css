@@ -83,4 +83,38 @@ color: #01407a;
 padding: 10px;
  
 }
+
+TABLE.report_table
+  { 
+     font-family:arial;
+     font-size:10pt;
+     background-color:#808080;
+     width:1000px;
+     border-style:solid;
+     border-color:black;
+     border-width:2px;
+  }
+
+  TH.report_table
+  {
+     font-size:10pt;
+     color:white;
+	 border-style:solid;
+	 border-width:1px;
+  }
+
+
+  TR.report_table
+  { 
+  }
+
+  TD.report_table
+  {  
+     font-size:10pt;
+     background-color:#409040;
+     color:white;
+     border-style:solid;
+     border-width:1px;
+     text-align:center;
+  }
  

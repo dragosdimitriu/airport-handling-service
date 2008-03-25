@@ -9,7 +9,8 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => "users", :action => "login"
   
   map.resources :service_requests,
-                :collection => {:search => :get}
+                :collection => {:search => :get, :report_stat => :get, :report_operator => :get}
+                
   
   map.resources :flight_types do |flight_types|
     flight_types.resources :service_types

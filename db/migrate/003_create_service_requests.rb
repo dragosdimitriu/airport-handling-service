@@ -8,6 +8,9 @@ class CreateServiceRequests < ActiveRecord::Migration
       t.string :flight
       t.integer :passengers_arriving
       t.integer :passengers_departing
+      t.integer :passengers_transit
+      t.integer :cargo_arriving
+      t.integer :cargo_departing
       t.string :route
       t.datetime :landing
       t.datetime :take_off

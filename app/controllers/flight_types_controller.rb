@@ -11,7 +11,9 @@ class FlightTypesController < ApplicationController
   end
   
   def new
+    @category = Array.new
     @flight_type = FlightType.new
+    @category = ["International", "Domestic", "Helicopter"]
   end
   
   def create
@@ -24,10 +26,10 @@ class FlightTypesController < ApplicationController
     #save created service type
     if @service_type.save!
      redirect_to flight_types_path
-     flash[:error] = "New aircraft and services created."
+     notice_stickie("New aircraft and services created.")
    else
      redirect_to new_flight_types
-      flash[:error] = "Could not create aircraft. Pls try again"
+      error_stickie("Could not create aircraft. Pls try again")
    end
      
   end

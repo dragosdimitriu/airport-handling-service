@@ -9,42 +9,55 @@
 <%= error_messages_for :service_request %>
 
 <% form_for(@service_request) do |f| %>
-  <table id="handling_new_table">
+<table id="handling_edit_table">
 <tr>
 			<td><b>Airline</b></td>
-			<td><b>A c type</b></td>
+			<td><b>Flight type</b></td>
 			<td><b>Registration</b></td>
 </tr>	
   <tr> 
 		   <td> <%= f.text_field :airline %></td>
-			<td><%= f.select (:a_c_type, @flight_types, @selected)%></td>
-			<td><%= f.text_field :registration %></td>
+			<td><%= f.select (:a_c_type, @flight_types ) %></td>
+			<td><%= f.text_field :registration %></td> 
   </tr>
 
  
  <tr>   
 		 <td><b>Mtow</b></td>
 		 <td> <b>Flight</b></td>
-		<td><b>Passengers arriving</b></td>
 	</tr>
 <tr>	
 		 <td> <%= f.text_field :mtow %></td>
 		 <td><%= f.text_field :flight %></td>
-		  <td><%= f.text_field :passengers_arriving %></td>
   </tr>
 
   <tr>
     
+			<td><b>Passengers arriving</b></td>
 			<td><b>Passengers departing</b></td>
-			<td colspan="2"><b>Route</b></td>
+			<td><b>Passangers transit</b></td>
 			
    </tr>
   <tr> 
+		 <td><%= f.text_field :passengers_arriving %></td>
 		 <td> <%= f.text_field :passengers_departing %></td>
-		 <td colspan="2">  <%= f.text_field :route, :class => "input_area" %></td>
+		<td><%= f.text_field :passengers_transit%></td>
 		 
  </tr>
-
+	<tr>
+		<td><b>Cargo arriving [Tons]</b></td>
+		<td colspan="2"><b>Cargo departing [Tons]</b></td>
+	</tr>
+	<tr>
+		<td><%= f.text_field :cargo_arriving %></td>
+		<td colspan="2"><%= f.text_field :cargo_departing %></td>
+	</tr>
+	<tr>
+		<td><b>Route</b></td>
+	</tr>
+	<tr>
+		 <td>  <%= f.text_field :route, :class => "input_area" %></td>
+	</tr>
  <tr>
  <td>  <b>Landing</b></td>
  
@@ -73,7 +86,6 @@
  </tr> 
 
   </table>
-  </fieldset>
 <fieldset>
 				<legend>
 				Services on Demand  

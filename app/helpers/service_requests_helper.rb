@@ -1,4 +1,53 @@
 module ServiceRequestsHelper
+  
+  def total_international_flights(start_date, stop_date)
+    
+    #get all international flights
+    flights = 0 #number of flights
+    passangers_arr = 0 #number of arriving passangers
+    passangers_dep = 0 #number of departing passangers
+    passangers_transit = 0 #number of transfer passangers
+    cargo_arr = 0 #tons of cargo arriving
+    cargo_dep = 0 #tons of cargo departing 
+    
+	  @flight_type_international = ServiceRequest.find(:all, :conditions => ["landing BETWEEN ? and ?",  start_date, stop_date])
+	  @flight_type_international.each { |flight_type_international|
+	    flight_type = FlightType.find_by_id(flight_type_international.a_c_type)
+	    if flight_type.category == "International"
+	      flights += 1
+        passangers_arr += flight_type_international.passengers_arriving
+        passangers_dep += flight_type_international.passengers_departing
+        passangers_transit += flight_type_international.passengers_transit
+        cargo_arr += flight_type_international.cargo_arriving
+        cargo_dep += flight_type_international.cargo_departing
+      end
+	  }
+	  return flights,passangers_arr,passangers_dep,passangers_transit,cargo_arr,cargo_dep
+	end
+
+	def total_domestic_flights(start_date, stop_date)
+    #get all domestic flights
+    flights = 0 #number of flights
+    passangers_arr = 0 #number of arriving passangers
+    passangers_dep = 0 #number of departing passangers
+    passangers_transit = 0 #number of transfer passangers
+    cargo_arr = 0 #tons of cargo arriving
+    cargo_dep = 0 #tons of cargo departing 
+    
+	  @flight_type_domestic = ServiceRequest.find(:all, :conditions => ["landing BETWEEN ? and ?",  start_date, stop_date])
+	  @flight_type_domestic.each { |flight_type_domestic|
+	    flight_type = FlightType.find_by_id(flight_type_domestic.a_c_type)
+	    if flight_type.category == "Domestic"
+	      flights += 1
+        passangers_arr += flight_type_domestic.passengers_arriving
+        passangers_dep += flight_type_domestic.passengers_departing
+        passangers_transit += flight_type_domestic.passengers_transit
+        cargo_arr += flight_type_domestic.cargo_arriving
+        cargo_dep += flight_type_domestic.cargo_departing
+      end
+	  }
+	  return flights,passangers_arr,passangers_dep,passangers_transit,cargo_arr,cargo_dep
+	end
 	def getLandingPrice(service_request)
 		price = @preturi.landing_unit_rate * @service_request.mtow
 		if (price >@preturi.landing_min_rate )
@@ -61,8 +110,8 @@ module ServiceRequestsHelper
 		end
 	end
 	
-	def getPassengerTranzit(service_request)
-		total_pasagers = (@service_request.passengers_arriving + @service_request.passengers_departing)
+	def getPassengerTranzit(service_request) 
+		total_pasagers = @service_request.passengers_transit
 		price = @preturi.passanger_transfer_unit_rate * total_pasagers
 		if (price > @preturi.passanger_transfer_min_rate )
 			return price
